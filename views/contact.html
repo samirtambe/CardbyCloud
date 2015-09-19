@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3>Contact</h3>
+        <h4>We look forward to hearing from you.  Fields marked with **
+            are required.</h4>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		<form name="contactform" method="post" action="msghandler.php" class="form-group">
+			<br>
+            <label for="flname">First and Last Name **</label>
+			<input type="text" name="flname" id="flname" class="form-control" required />
+			<br>
+            <label for="phonenum">Phone Number</label>
+			<input type="text" name="phonenum" id="phonenum" class="form-control" />
+			<br>
+            <label for="email">Email Address **</label>
+			<input type="text" name="email" id="email" class="form-control" required />
+			<br>
+            <label for="message">Message **</label>
+			<textarea name="message" class="form-control" id="message" rows="3" required>
+            </textarea>
+			<br>
+			<div style="margin:auto;width:20%;"><!-- CENTERS THE BUTTON -->
+				<button type="submit" value="Submit"
+                        class="btn btn-primary btn-xl">Send Message</button>
+			</div>
+		</form>
+    </div>
+</div>
