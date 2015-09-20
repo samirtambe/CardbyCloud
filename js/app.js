@@ -1,5 +1,5 @@
 (function() {
-    angular.module('cardbycloud',['ui.router','']);
+    angular.module('cardbycloud',['ui.router']);
 
     console.log("Created cardbycloud angular module");
 
