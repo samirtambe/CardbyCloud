@@ -1,15 +1,11 @@
 (function() {
-    angular.module('cardbycloud',['ui.router']);
 
-    console.log("Created cardbycloud angular module");
-
-    angular.module('cardbycloud').config(
-
-        function($stateProvider, $urlRouterProvider) {
-
+    angular.module('cardbycloud',['ui.router'])
+        .config( function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');
 
-        $stateProvider.state('home', {
+        $stateProvider
+        .state('home', {
             url: '/home',
             templateUrl: 'views/main.html'
         })
@@ -24,6 +20,7 @@
         .state('contact', {
             url: '/contact',
             templateUrl: 'views/contact.html',
+            controller: 'ContactCtrl'
         });
     });
 }());
