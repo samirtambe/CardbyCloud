@@ -21,6 +21,9 @@
             url: '/contact',
             templateUrl: 'views/contact.html',
             controller: 'ContactCtrl'
+        }).state('messagesuccess', {
+            url: '/messagesuccess',
+            templateUrl: 'views/messagesuccess.html'
         });
     });
 }());
