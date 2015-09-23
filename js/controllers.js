@@ -6,43 +6,43 @@
 
         $scope.data = {flname: '', email: '', phonenum: '', message: ''};
 
-        $scope.sendReq = function() {
+        $scope.submitForm = function(isValid) {
+            if (isValid) {
+                $http({method: 'POST',
+                       url: 'msghandler.php',
+                       transformRequest: FormPostSvc,
+                       data: {
+                           flname: $scope.data.flname,
+                           email: $scope.data.email,
+                           phonenum: $scope.data.phonenum,
+                           message: $scope.data.message
+                      }
+                    })
+                .then(function (response) {
+                    console.log("THEN: " + response.data);
 
-            $http({method: 'POST',
-                   url: 'msghandler.php',
-                   transformRequest: FormPostSvc,
-                   data: {
-                       flname: $scope.data.flname,
-                       email: $scope.data.email,
-                       phonenum: $scope.data.phonenum,
-                       message: $scope.data.message
-                  }
-                })
-            .then(function (response) {
-                console.log("THEN: " + response.data);
+                    var found = response.data.search(/sent/i);
 
-                var found = response.data.search(/sent/i);
+                    if (found > -1) {
+                        $state.go('messagesuccess');
+                    } else {
+                        $state.go('messageerror');
+                    }
 
-                if (found > -1) {
-                    $state.go('messagesuccess');
-                } else {
-                    $state.go('messageerror');
-                }
+                    return response;
 
-                return response;
+                },function (response) {
 
-            },function (response) {
+                    console.log("CATCH: " +
+                                response.data+' => '+
+                                response.status + ' => '+
+                                response.statusText);
 
-                console.log("CATCH: " +
-                            response.data+' => '+
-                            response.status + ' => '+
-                            response.statusText);
-
-                return response;
-            });
-        };
+                    return response;
+                });
+            }//if
+        };//function
    }]);
-
 
 
 // I provide a request-transformation method that is used to prepare the outgoing
