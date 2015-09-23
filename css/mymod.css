@@ -58,8 +58,21 @@ img.mediaicons {
     margin-right: 5px;
     margin-bottom: 10px;
 }
+div.inputErrLabel {
+    margin-bottom: 20px;
+}
 div.sendmsgdiv {
     margin: auto;
     width: 20%;
     margin-top: 25px;
 }
+
+.ng-valid       {  }
+.ng-invalid     {  }
+.ng-pristine    {  }
+.ng-dirty       {  }
+.ng-touched     {  }
+
+/* really specific css rules applied by angular */
+.ng-invalid-required        {  }
+.ng-invalid-minlength       {  }
