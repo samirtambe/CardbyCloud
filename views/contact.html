@@ -6,38 +6,59 @@
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		<form  name="msgForm"
-              class="form-group"
+		<form  name="msgForm" class="form-group"
               ng-submit="submitForm(msgForm.$valid)" novalidate>
-			<br>
-            <label for="flname">First and Last Name **</label>
-			<input type="text"
-                   name="flname"
-                   class="form-control"
-                   ng-model="data.flname"
-                   required/>
-			<br>
+
+            <div ng-class="{ 'has-error' : userForm.name.$invalid && !msgForm.flname.$pristine }"
+                 class="inputErrLabel">
+                <label for="flname">First and Last Name **</label>
+                <input type="text"
+                       name="flname"
+                       class="form-control"
+                       ng-model="data.flname"
+                       ng-minlength="2"
+                       required/>
+                <p ng-show="msgForm.flname.$invalid && !msgForm.flname.$pristine"
+                   class="help-block">Name is required.</p>
+                <p ng-show="msgForm.flname.$error.minlength"
+                   class="help-block">Username is too short.</p>
+            </div>
+
             <label for="phonenum">Phone Number</label>
 			<input type="tel"
                    name="phonenum"
                    class="form-control"
-                   ng-model="data.phonenum"/>
-			<br>
-            <label for="email">Email Address **</label>
-			<input type="email"
-                   name="email"
-                   class="form-control"
-                   ng-model="data.email"
-                   required />
-			<br>
-            <label for="message">Message **</label>
-			<textarea name="message"
-                      class="form-control"
-                      rows="3"
-                      ng-model="data.message" required>
-            </textarea>
+                   ng-model="data.phonenum"
+                   style="margin-bottom: 20px;"/>
 
-			<div class="sendmsgdiv">
+            <div ng-class="{ 'has-error' : msgForm.email.$invalid && !msgForm.email.$pristine }"
+                 class="inputErrLabel">
+                <label for="email">Email Address **</label>
+                <input type="email"
+                       name="email"
+                       class="form-control"
+                       ng-model="data.email"
+                       required />
+                <p ng-show="msgForm.email.$invalid && !msgForm.email.$pristine"
+                   class="help-block">Not Valid Email Address.</p>
+            </div>
+
+            <div ng-class="{ 'has-error' : msgForm.msg.$invalid && !msgForm.msg.$pristine }"
+                 class="inputErrLabel">
+                <label for="msg">Message **</label>
+                <textarea name="msg"
+                          class="form-control"
+                          rows="3"
+                          ng-model="data.message"
+                          placeholder="Minimum 4 characters"
+                          ng-minlength="4"
+                          required>
+                </textarea>
+                <p ng-show="msgForm.msg.$error.minlength"
+                   class="help-block">Username is too short.</p>
+            </div>
+
+            <div class="sendmsgdiv">
 				<button type="submit"
                         class="btn btn-primary btn-lg"
                         ng-disabled="msgForm.$invalid">Send Message</button>
