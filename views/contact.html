@@ -1,29 +1,40 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3>Contact</h3>
-        <h4>We look forward to hearing from you.  ** <strong>Required</strong>.</h4>
-
+        <h4>We look forward to hearing from you. <strong>** Required</strong>.</h4>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		<form  name="msgForm" class="form-group" ng-submit="submitForm(msgForm.$valid)" novalidate>
+		<form  name="msgForm"
+              class="form-group"
+              ng-submit="submitForm(msgForm.$valid)" novalidate>
 			<br>
             <label for="flname">First and Last Name **</label>
-			<input type="text" name="flname" class="form-control"
-                   ng-model="data.flname"/>
+			<input type="text"
+                   name="flname"
+                   class="form-control"
+                   ng-model="data.flname"
+                   required/>
 			<br>
             <label for="phonenum">Phone Number</label>
-			<input type="tel" name="phonenum" class="form-control"
+			<input type="tel"
+                   name="phonenum"
+                   class="form-control"
                    ng-model="data.phonenum"/>
 			<br>
             <label for="email">Email Address **</label>
-			<input type="email" name="email" class="form-control"
-                   ng-model="data.email"/>
+			<input type="email"
+                   name="email"
+                   class="form-control"
+                   ng-model="data.email"
+                   required />
 			<br>
             <label for="message">Message **</label>
-			<textarea name="message" class="form-control" rows="3"
-                      ng-model="data.message">
+			<textarea name="message"
+                      class="form-control"
+                      rows="3"
+                      ng-model="data.message" required>
             </textarea>
 
 			<div class="sendmsgdiv">
