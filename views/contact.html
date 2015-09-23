@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		<form  class="form-group" novalidate>
+		<form  name="msgForm" class="form-group" ng-submit="submitForm(msgForm.$valid)" novalidate>
 			<br>
             <label for="flname">First and Last Name **</label>
 			<input type="text" name="flname" class="form-control"
@@ -26,10 +26,8 @@
                       ng-model="data.message">
             </textarea>
 
-			<div class="sendmsgdiv" style="margin:auto;width:20%;"><!-- CENTERS THE BUTTON -->
-				<button type="submit"
-                        ng-click="sendReq()"
-                        class="btn btn-primary btn-lg">Send Message</button>
+			<div class="sendmsgdiv">
+				<button type="submit" class="btn btn-primary btn-lg">Send Message</button>
 			</div>
 		</form>
     </div>
