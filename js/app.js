@@ -24,6 +24,9 @@
         }).state('messagesuccess', {
             url: '/messagesuccess',
             templateUrl: 'views/messagesuccess.html'
+        }).state('messageerror', {
+            url: '/messageerror',
+            templateUrl: 'views/messageerror.html'
         });
     });
 }());
