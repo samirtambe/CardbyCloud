@@ -27,7 +27,9 @@
             </textarea>
 
 			<div class="sendmsgdiv">
-				<button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+				<button type="submit"
+                        class="btn btn-primary btn-lg"
+                        ng-disabled="msgForm.$invalid">Send Message</button>
 			</div>
 		</form>
     </div>
